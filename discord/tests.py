@@ -1,17 +1,10 @@
-from __future__ import unicode_literals
-
-try:
-    # Py3
-    from unittest import mock
-except ImportError:
-    # Py2
-    import mock
+from unittest import mock
 
 from django.test import TestCase, RequestFactory
 from django.contrib.auth.models import User, Group, Permission
 from django.core.exceptions import ObjectDoesNotExist
 from django.conf import settings
-from alliance_auth.tests.auth_utils import AuthUtils
+from allianceauth.tests.auth_utils import AuthUtils
 
 from .auth_hooks import DiscordService
 from .models import DiscordUser
@@ -21,7 +14,7 @@ from .manager import DiscordOAuthManager
 import requests_mock
 import datetime
 
-MODULE_PATH = 'services.modules.discord'
+MODULE_PATH = 'allianceauth.services.modules.discord'
 DEFAULT_AUTH_GROUP = 'Member'
 
 
@@ -263,7 +256,7 @@ class DiscordManagerTestCase(TestCase):
         headers = {'accept': 'application/json', 'authorization': 'Bearer accesstoken'}
 
         m.register_uri('POST',
-                       manager.DISCORD_URL + '/invites/'+str(settings.DISCORD_INVITE_CODE),
+                       manager.DISCORD_URL + '/invites/' + str(settings.DISCORD_INVITE_CODE),
                        request_headers=headers,
                        text='{}')
 
@@ -331,7 +324,6 @@ class DiscordManagerTestCase(TestCase):
     @requests_mock.Mocker()
     def test_update_nickname(self, m):
         from . import manager
-        import json
         # Arrange
         headers = {'content-type': 'application/json', 'authorization': 'Bot ' + settings.DISCORD_BOT_TOKEN}
 

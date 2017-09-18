@@ -1,17 +1,14 @@
-from __future__ import unicode_literals
-
 import logging
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.decorators import permission_required
+from django.contrib.auth.decorators import user_passes_test
 from django.shortcuts import redirect
 
+from allianceauth.services.views import superuser_test
 from .manager import DiscordOAuthManager
 from .tasks import DiscordTasks
-from services.views import superuser_test
-
 
 logger = logging.getLogger(__name__)
 

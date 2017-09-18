@@ -1,13 +1,12 @@
-from __future__ import unicode_literals
-
 import logging
 
-from alliance_auth.celeryapp import app
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
-from notifications import notify
-from services.modules.discord.manager import DiscordOAuthManager, DiscordApiBackoff
+from allianceauth.notifications import notify
+
+from allianceauth.celeryapp import app
+from .manager import DiscordOAuthManager, DiscordApiBackoff
 from .models import DiscordUser
 
 logger = logging.getLogger(__name__)

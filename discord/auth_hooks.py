@@ -1,11 +1,9 @@
-from __future__ import unicode_literals
-
 import logging
 
 from django.template.loader import render_to_string
 
-from alliance_auth import hooks
-from services.hooks import ServicesHook
+from allianceauth import hooks
+from allianceauth.services.hooks import ServicesHook
 from .tasks import DiscordTasks
 from .urls import urlpatterns
 
