@@ -1,1 +1,1 @@
-default_app_config = 'allianceauth.services.modules.discord.apps.DiscordServiceConfig'
+__version__ = 0.1
