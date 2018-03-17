@@ -9,6 +9,7 @@ install_requires = [
     'allianceauth==2.0b3',
     'django>=1.11',
     'discord.py>=1.0',
+    'tornado>=5.0.0',
 ]
 
 testing_extras = [
